@@ -21,6 +21,13 @@
 package org.wahlzeit.services;
 
 import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.wahlzeit.services.EmailAddress;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Test cases for the EmailAddress class.
@@ -32,6 +39,15 @@ public class EmailAddressTest extends TestCase {
 	 */
 	public EmailAddressTest(String name) {
 		super(name);
+	}
+	
+	EmailAddress ea1 = null;
+	EmailAddress ea2 = null;
+
+	@Before
+	public void setup() throws Exception {
+		ea1 = EmailAddress.getFromString("test@test.de");
+		ea2 = EmailAddress.getFromString("test@test.de");
 	}
 
 	/**
@@ -64,6 +80,16 @@ public class EmailAddressTest extends TestCase {
 	 */
 	public void testEmptyEmailAddress() {
 		assertFalse(EmailAddress.EMPTY.isValid());
+	}
+	
+	@Test
+	public void testIsEqual() {
+		assertTrue(ea1.isEqual(ea2));
+	}
+	
+	@Test 
+	public void testIsValid() {
+		assertTrue(ea1.isValid());
 	}
 
 }
