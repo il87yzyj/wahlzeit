@@ -13,7 +13,6 @@ import org.wahlzeit.utils.VersionTest;
 @RunWith(Suite.class)
 @SuiteClasses({ 
 	TellFriendTest.class, 
-	AbstractAdapterTest.class,
 	DatastoreAdapterTest.class,
 	AccessRightsTest.class, 
 	FlagReasonTest.class,

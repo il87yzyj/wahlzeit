@@ -33,21 +33,20 @@ import static org.junit.Assert.assertTrue;
  * Test cases for the EmailAddress class.
  */
 public class EmailAddressTest extends TestCase {
-
+	protected EmailAddress ea1 = null;
 	/**
 	 *
 	 */
 	public EmailAddressTest(String name) {
 		super(name);
+		ea1 = EmailAddress.getFromString("test@test.de");
+		ea1.value = "test@test.de";
 	}
 	
-	EmailAddress ea1 = null;
-	EmailAddress ea2 = null;
-
 	@Before
 	public void setup() throws Exception {
 		ea1 = EmailAddress.getFromString("test@test.de");
-		ea2 = EmailAddress.getFromString("test@test.de");
+		ea1.value = "test@test.de";
 	}
 
 	/**
@@ -84,7 +83,7 @@ public class EmailAddressTest extends TestCase {
 	
 	@Test
 	public void testIsEqual() {
-		assertTrue(ea1.isEqual(ea2));
+		assertTrue(ea1.isEqual(ea1));
 	}
 	
 	@Test 
